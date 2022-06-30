@@ -1,49 +1,70 @@
 {
-  "name": "musicify",
+  "name": "nest-typescript-starter",
+  "private": true,
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Nest TypeScript starter repository",
+  "license": "MIT",
   "scripts": {
-    "postinstall": "run-s install:artists install:genres install:bands install:tracks install:tracks install:users install:favourites install:albums",
-    "install:artists": "cd artists && npm i",
-    "install:genres": "cd genres && npm i",
-    "install:bands": "cd bands && npm i",
-    "install:tracks": "cd tracks && npm i",
-    "install:users": "cd users && npm i",
-    "install:favourites": "cd favourites && npm i",
-    "install:albums": "cd albums && npm i",
-    "run:artists:dev": "cd artists && npm run start:dev",
-    "run:genres:dev": "cd genres && npm run start:dev",
-    "run:bands:dev": "cd bands && npm run start:dev",
-    "run:tracks:dev": "cd tracks && npm run start:dev",
-    "run:users:dev": "cd users && npm run start:dev",
-    "run:favourites:dev": "cd favourites && npm run start:dev",
-    "run:albums:dev": "cd albums && npm run start:dev",
-    "run:artists": "cd artists && npm run start",
-    "run:genres": "cd genres && npm run start",
-    "run:bands": "cd bands && npm run start",
-    "run:tracks": "cd tracks && npm run start",
-    "run:users": "cd users && npm run start",
-    "run:favourites": "cd favourites && npm run start",
-    "run:albums": "cd albums && npm run start",
-    "run:artists:prod": "cd artists && npm run build && npm run start:prod",
-    "run:genres:prod": "cd genres && npm run build && npm run start:prod",
-    "run:bands:prod": "cd bands && npm run build && npm run start:prod",
-    "run:tracks:prod": "cd tracks && npm run build && npm run start:prod",
-    "run:users:prod": "cd users && npm run build && npm run start:prod",
-    "run:favourites:prod": "cd favourites && npm run build && npm run start:prod",
-    "run:albums:prod": "cd albums && npm run build && npm run start:prod",
-    "run:all:dev": "npm run kill && run-p run:artists:dev run:genres:dev run:bands:dev run:tracks:dev run:users:dev run:favourites:dev run:albums:dev",
-    "run:all": "npm run kill && run-p run:artists run:genres run:bands run:tracks run:users run:favourites run:albums",
-    "run:all:prod": "npm run kill && run-p run:artists:prod run:genres:prod run:bands:prod run:tracks:prod run:users:prod run:favourites:prod run:albums:prod",
-    "kill": "kill-port --port 3001,3002,3003,3004,3005,3006,3007"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "npm-run-all": "^4.1.5"
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "nest start",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
+    "start:prod": "node dist/main",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "kill-port": "^2.0.1"
+    "@nestjs/common": "^8.1.1",
+    "@nestjs/core": "^8.1.1",
+    "@nestjs/platform-express": "^8.1.1",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^3.0.2",
+    "rxjs": "^7.4.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^8.1.3",
+    "@nestjs/schematics": "^8.0.4",
+    "@nestjs/testing": "^8.1.1",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.1",
+    "@types/supertest": "^2.0.11",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "jest": "^27.3.0",
+    "prettier": "^2.4.1",
+    "source-map-support": "^0.5.20",
+    "supertest": "^6.1.6",
+    "ts-jest": "^27.0.7",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.3.0",
+    "tsconfig-paths": "^3.11.0",
+    "typescript": "^4.4.4"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   }
 }
