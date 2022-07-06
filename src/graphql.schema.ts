@@ -39,4 +39,20 @@ export class Cat {
     owner?: Nullable<Owner>;
 }
 
+export class Artist {
+    id: string;
+    firstName?: Nullable<string>;
+    secondName?: Nullable<string>;
+    middleName?: Nullable<string>;
+    birthDate?: Nullable<string>;
+    birthPlace?: Nullable<string>;
+    deathDate?: Nullable<string>;
+    deathPlace?: Nullable<string>;
+    country?: Nullable<string>;
+    bands?: Nullable<string>;
+    instruments?: Nullable<string>;
+    pseudonims?: Nullable<string>;
+    labels?: Nullable<string>;
+}
+
 type Nullable<T> = T | null;
