@@ -1,17 +1,12 @@
-import { AppModule } from './app.module';
-import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
-//import { startApolloServer } from './modules/apollo.server'
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.useGlobalPipes(
-    new ValidationPipe({
-      skipMissingProperties: true,
-    }),
-  );
-  await app.listen(4000);
-  console.log('Server started on localhost: 4000');
-  //startApolloServer();
+  app.useGlobalPipes(new ValidationPipe());
+
+  await app.listen(3000);
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
