@@ -2,10 +2,7 @@ import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 
 @Injectable()
-export class ArtistsService {
-  findAll() {
-    throw new Error('Method not implemented.');
-  }
+export class BandsService {
   findOneById(id: any) {
     throw new Error('Method not implemented.');
   }
@@ -13,7 +10,7 @@ export class ArtistsService {
 
   constructor() {
     this.client = axios.create({
-      baseURL: process.env.ARTISTS_URL,
+      baseURL: process.env.BANDS_URL,
     });
   }
 }

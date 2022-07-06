@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ArtistsService } from './services/artists.service';
-import { ArttistResolver} from './resolvers';
+import { ArtistsResolver } from './resolvers/artists.resolver';
 
 @Module({
   imports: [],
-  providers: [ArtistsService, ArttistResolver],
+  providers: [ArtistsService, ArtistsResolver],
   exports: [ArtistsService],
 })
 export class ArtistModule {}
