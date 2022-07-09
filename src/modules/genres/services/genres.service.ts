@@ -3,7 +3,7 @@ import axios from 'axios';
 
 @Injectable()
 export class GenresService {
-  findOneById(id: any) {
+  findById(id: any) {
     throw new Error('Method not implemented.');
   }
   private client;

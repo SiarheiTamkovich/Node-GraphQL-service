@@ -13,7 +13,6 @@ export class CatsResolver {
   constructor(private readonly catsService: CatsService) {}
 
   @Query('cats')
-  @UseGuards(CatsGuard)
   async getCats() {
     return this.catsService.findAll();
   }
@@ -27,9 +26,11 @@ export class CatsResolver {
   }
 
   @Mutation('createCat')
+  @UseGuards(CatsGuard)
   async create(@Args('createCatInput') args: CreateCatDto): Promise<Cat> {
     const createdCat = await this.catsService.create(args);
     pubSub.publish('catCreated', { catCreated: createdCat });
+    //console.log(this.catsService);
     return createdCat;
   }
 

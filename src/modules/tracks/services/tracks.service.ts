@@ -6,7 +6,7 @@ export class TracksService {
   findAll() {
     throw new Error('Method not implemented.');
   }
-  findOneById(id: string) {
+  findById(id: string) {
     throw new Error('Method not implemented.');
   }
   private client;

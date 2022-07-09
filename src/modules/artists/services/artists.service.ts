@@ -6,7 +6,7 @@ export class ArtistsService {
   findAll() {
     throw new Error('Method not implemented.');
   }
-  findOneById(id: any) {
+  findById(id: string) {
     throw new Error('Method not implemented.');
   }
   private client;

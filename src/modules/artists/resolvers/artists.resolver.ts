@@ -11,6 +11,6 @@ export class ArtistsResolver {
 
   @Query()
   async artist(@Args('id') id: string) {
-    return this.artistsService.findOneById(id);
+    return this.artistsService.findById(id);
   }
 }

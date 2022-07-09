@@ -5,6 +5,7 @@ import { GqlExecutionContext } from '@nestjs/graphql';
 export class CatsGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean {
     const ctx = GqlExecutionContext.create(context);
+    //console.log(ctx);
     return true;
   }
 }

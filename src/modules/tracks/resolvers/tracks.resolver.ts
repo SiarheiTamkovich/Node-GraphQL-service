@@ -19,7 +19,7 @@ export class TrackResolver {
 
   @Query()
   async track(@Args('id') id: string) {
-    return this.tracksService.findOneById(id);
+    return this.tracksService.findById(id);
   }
 
   @Resolver()
@@ -28,7 +28,7 @@ export class TrackResolver {
     const { bandsIds } = track;
     return await Promise.all(
       bandsIds.map((id) => {
-        return this.bandsService.findOneById(id);
+        return this.bandsService.findById(id);
       }),
     );
   }
@@ -39,7 +39,7 @@ export class TrackResolver {
     const { artistsIds } = track;
     return await Promise.all(
       artistsIds.map((id) => {
-        return this.artistsService.findOneById(id);
+        return this.artistsService.findById(id);
       }),
     );
   }
@@ -50,7 +50,7 @@ export class TrackResolver {
     const { genresIds } = track;
     return await Promise.all(
       genresIds.map((id) => {
-        return this.genresService.findOneById(id);
+        return this.genresService.findById(id);
       }),
     );
   }
