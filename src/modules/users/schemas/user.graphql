@@ -1,14 +1,14 @@
 type User {
-    id: ID!
-    firstName: String
-    lastName: String
-    password: String
-    email: String!
+  id: ID!
+  firstName: String
+  lastName: String
+  password: String
+  email: String!
+  jwt: String
 }
 
 type Query {
-  users: [User]
-  user(id: ID!): User
+  jwt(email: String!, password: String): User
 }
 
 type Mutation {

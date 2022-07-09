@@ -35,9 +35,7 @@ export abstract class IQuery {
 
     abstract track(id: string): Nullable<Track> | Promise<Nullable<Track>>;
 
-    abstract users(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
-
-    abstract user(id: string): Nullable<User> | Promise<Nullable<User>>;
+    abstract jwt(email: string, password: string): Nullable<User> | Promise<Nullable<User>>;
 }
 
 export abstract class IMutation {
@@ -45,7 +43,7 @@ export abstract class IMutation {
 
     abstract createGenre(name?: Nullable<string>, description?: Nullable<string>, country?: Nullable<string>, year?: Nullable<number>): Nullable<Genre> | Promise<Nullable<Genre>>;
 
-    abstract createUser(createUserData?: Nullable<CreateUserData>): Nullable<User> | Promise<Nullable<User>>;
+    abstract registerUser(createUserData?: Nullable<CreateUserData>): Nullable<User> | Promise<Nullable<User>>;
 }
 
 export abstract class ISubscription {
@@ -116,6 +114,7 @@ export class User {
     lastName?: Nullable<string>;
     password?: Nullable<string>;
     email: string;
+    jwt?: string;
 }
 
 type Nullable<T> = T | null;

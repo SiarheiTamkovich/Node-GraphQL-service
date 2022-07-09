@@ -6,14 +6,10 @@ import { UsersService } from '../services/users.service';
 export class UsersResolver {
   constructor(public usersService: UsersService) {}
 
-  @Query()
-  async users() {
-    //return this.usersService.findAll();
-  }
-
-  @Query()
-  async user(@Args('id') id: string) {
-    //return this.usersService.findById(id);
+  @Query('jwt')
+  async jwt(@Args('email') email: string, @Args('password') password: string) {
+    const response = await this.usersService.getJWT(email, password);
+    return response;
   }
 
   @Mutation('registerUser')
