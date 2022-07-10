@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { CreateArtistData, CreateBandData } from 'src/graphql.schema';
+import { CreateBandData, UpdateBandData } from 'src/graphql.schema';
 
 @Injectable()
 export class BandsService {
@@ -8,7 +8,7 @@ export class BandsService {
     const config: AxiosRequestConfig = {
       method: 'POST',
       data: args,
-      url: process.env.ARTIST_URL,
+      url: process.env.BANDS_URL,
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
         Authorization: `Bearer ${jwtToken}`,
@@ -22,7 +22,7 @@ export class BandsService {
     const config: AxiosRequestConfig = {
       method: 'DELETE',
       data: '',
-      url: process.env.ARTIST_URL + `/${id}`,
+      url: process.env.BANDS_URL + `/${id}`,
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
         Authorization: `Bearer ${jwtToken}`,
@@ -32,11 +32,11 @@ export class BandsService {
     console.log(response.data);
   }
 
-  async updateArtist(id: string, args: CreateArtistData, jwtToken: string) {
+  async updateBand(id: string, args: UpdateBandData, jwtToken: string) {
     const config: AxiosRequestConfig = {
       method: 'PUT',
       data: args,
-      url: process.env.ARTIST_URL + `/${id}`,
+      url: process.env.BANDS_URL + `/${id}`,
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
         Authorization: `Bearer ${jwtToken}`,
@@ -50,7 +50,7 @@ export class BandsService {
     const config: AxiosRequestConfig = {
       method: 'GET',
       data: '',
-      url: process.env.ARTIST_URL + `/${id}`,
+      url: process.env.BANDS_URL + `/${id}`,
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
@@ -63,7 +63,7 @@ export class BandsService {
     const config: AxiosRequestConfig = {
       method: 'GET',
       data: '',
-      url: process.env.ARTIST_URL,
+      url: process.env.BANDS_URL,
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },

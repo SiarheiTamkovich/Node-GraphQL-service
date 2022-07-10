@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { CreateArtistData } from 'src/graphql.schema';
+import { CreateArtistData, UpdateArtistData } from 'src/graphql.schema';
 
 @Injectable()
 export class ArtistsService {
@@ -32,7 +32,7 @@ export class ArtistsService {
     console.log(response.data);
   }
 
-  async updateArtist(id: string, args: CreateArtistData, jwtToken: string) {
+  async updateArtist(id: string, args: UpdateArtistData, jwtToken: string) {
     const config: AxiosRequestConfig = {
       method: 'PUT',
       data: args,
