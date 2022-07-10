@@ -28,7 +28,7 @@ export class TrackResolver {
     const { bandsIds } = track;
     return await Promise.all(
       bandsIds.map((id) => {
-        return this.bandsService.findById(id);
+        return this.bandsService.findOneById(id);
       }),
     );
   }

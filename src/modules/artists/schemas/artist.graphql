@@ -27,7 +27,6 @@ type Mutation {
   updateArtist(updateArtistData: UpdateArtistData): Artist
 }
 
-
 input CreateArtistData {
   firstName: String
   secondName: String

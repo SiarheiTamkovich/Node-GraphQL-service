@@ -33,6 +33,23 @@ export class UpdateArtistData {
     instruments?: Nullable<Nullable<string>[]>;
 }
 
+export class CreateBandData {
+    name?: Nullable<string>;
+    origin?: Nullable<string>;
+    members?: Nullable<string>;
+    website?: Nullable<string>;
+    genres?: Nullable<Nullable<string>[]>;
+}
+
+export class UpdateBandData {
+    id?: Nullable<string>;
+    name?: Nullable<string>;
+    origin?: Nullable<string>;
+    members?: Nullable<string>;
+    website?: Nullable<string>;
+    genres?: Nullable<Nullable<string>[]>;
+}
+
 export class CreateUserData {
     firstName?: Nullable<string>;
     lastName?: Nullable<string>;
@@ -48,6 +65,10 @@ export abstract class IQuery {
     abstract artists(): Nullable<Nullable<Artist>[]> | Promise<Nullable<Nullable<Artist>[]>>;
 
     abstract artist(id: string): Nullable<Artist> | Promise<Nullable<Artist>>;
+
+    abstract bands(): Nullable<Nullable<Band>[]> | Promise<Nullable<Nullable<Band>[]>>;
+
+    abstract band(id: string): Nullable<Band> | Promise<Nullable<Band>>;
 
     abstract genre(id: string): Nullable<Genre> | Promise<Nullable<Genre>>;
 
@@ -68,6 +89,12 @@ export abstract class IMutation {
     abstract deleteArtist(id: string): Nullable<Artist> | Promise<Nullable<Artist>>;
 
     abstract updateArtist(updateArtistData?: Nullable<UpdateArtistData>): Nullable<Artist> | Promise<Nullable<Artist>>;
+
+    abstract createBand(createBandData?: Nullable<CreateBandData>): Nullable<Band> | Promise<Nullable<Band>>;
+
+    abstract deleteBand(id: string): Nullable<Band> | Promise<Nullable<Band>>;
+
+    abstract updateBand(updateBandData?: Nullable<UpdateBandData>): Nullable<Band> | Promise<Nullable<Band>>;
 
     abstract createGenre(name?: Nullable<string>, description?: Nullable<string>, country?: Nullable<string>, year?: Nullable<number>): Nullable<Genre> | Promise<Nullable<Genre>>;
 

@@ -1,16 +1,74 @@
 import { Injectable } from '@nestjs/common';
-import axios from 'axios';
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
+import { CreateArtistData, CreateBandData } from 'src/graphql.schema';
 
 @Injectable()
 export class BandsService {
-  findById(id: any) {
-    throw new Error('Method not implemented.');
+  async createBands(args: CreateBandData, jwtToken: string) {
+    const config: AxiosRequestConfig = {
+      method: 'POST',
+      data: args,
+      url: process.env.ARTIST_URL,
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+    const response: AxiosResponse = await axios(config);
+    return response.data;
   }
-  private client;
 
-  constructor() {
-    this.client = axios.create({
-      baseURL: process.env.BANDS_URL,
-    });
+  async deleteBands(id: string, jwtToken: string) {
+    const config: AxiosRequestConfig = {
+      method: 'DELETE',
+      data: '',
+      url: process.env.ARTIST_URL + `/${id}`,
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+    const response: AxiosResponse = await axios(config);
+    console.log(response.data);
+  }
+
+  async updateArtist(id: string, args: CreateArtistData, jwtToken: string) {
+    const config: AxiosRequestConfig = {
+      method: 'PUT',
+      data: args,
+      url: process.env.ARTIST_URL + `/${id}`,
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+        Authorization: `Bearer ${jwtToken}`,
+      },
+    };
+    const response: AxiosResponse = await axios(config);
+    return response.data;
+  }
+
+  async findOneById(id: string) {
+    const config: AxiosRequestConfig = {
+      method: 'GET',
+      data: '',
+      url: process.env.ARTIST_URL + `/${id}`,
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    };
+    const response: AxiosResponse = await axios(config);
+    return response.data;
+  }
+
+  async findAll() {
+    const config: AxiosRequestConfig = {
+      method: 'GET',
+      data: '',
+      url: process.env.ARTIST_URL,
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    };
+    const response: AxiosResponse = await axios(config);
+    return response.data.items;
   }
 }

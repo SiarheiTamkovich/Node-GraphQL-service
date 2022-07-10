@@ -18,5 +18,6 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+## Test graphql
 
+go to http://localhost:3000/graphql and run script:
