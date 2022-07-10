@@ -12,3 +12,34 @@ type Query {
   tracks(limit: Int, offset: Int): [Track]
   track(id: ID!): Track
 }
+
+type Mutation {
+  createTrack(createTrackData: CreateTrackData): Track
+}
+
+type Mutation {
+  deleteTrack(id: ID!): Track
+}
+
+type Mutation {
+  updateTrack(updateTrackData: UpdateTrackData): Track
+}
+
+input CreateTrackData {
+  title: String!
+  bands: [string]
+  artists: [String]
+  duration: Int
+  released: Int
+  genres: [String]
+}
+
+input UpdateTrackData {
+  id: string
+  title: String!
+  bands: [string]
+  artists: [String]
+  duration: Int
+  released: Int
+  genres: [String]
+}

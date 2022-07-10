@@ -4,11 +4,13 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { upperDirectiveTransformer } from './common/directives/upper-case.directive';
 import { ArtistModule } from './modules/artists/artists.module';
 import { UsersModule } from './modules/users/users.module';
+import { BandsModule } from './modules/bands/bands.module';
 
 @Module({
   imports: [
     ArtistModule,
     UsersModule,
+    BandsModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       typePaths: ['./**/*.graphql'],
