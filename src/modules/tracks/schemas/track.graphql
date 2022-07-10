@@ -27,7 +27,7 @@ type Mutation {
 
 input CreateTrackData {
   title: String!
-  bands: [string]
+  bands: [String]
   artists: [String]
   duration: Int
   released: Int
@@ -35,9 +35,9 @@ input CreateTrackData {
 }
 
 input UpdateTrackData {
-  id: string
+  id: String
   title: String!
-  bands: [string]
+  bands: [String]
   artists: [String]
   duration: Int
   released: Int

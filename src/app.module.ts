@@ -5,12 +5,14 @@ import { upperDirectiveTransformer } from './common/directives/upper-case.direct
 import { ArtistModule } from './modules/artists/artists.module';
 import { UsersModule } from './modules/users/users.module';
 import { BandsModule } from './modules/bands/bands.module';
+import { GenresModule } from './modules/genres/genres.module';
 
 @Module({
   imports: [
     ArtistModule,
     UsersModule,
     BandsModule,
+    GenresModule,
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       typePaths: ['./**/*.graphql'],
