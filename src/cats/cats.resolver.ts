@@ -18,10 +18,8 @@ export class CatsResolver {
   }
 
   @Query('cat')
-  async findOneById(
-    @Args('id', ParseIntPipe)
-    id: number,
-  ): Promise<Cat> {
+  async findOneById(@Args('id', ParseIntPipe) id: number): Promise<Cat> {
+    console.log(id);
     return this.catsService.findOneById(id);
   }
 

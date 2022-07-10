@@ -5,16 +5,47 @@ type Artist {
   middleName: String
   birthDate: String
   birthPlace: String
-  deathDate: String
-  deathPlace: String
   country: String
-  bands: String
-  instruments: String
-  pseudonims: String
-  labels: String
+  bands: [Band]
+  instruments: [String]
 }
 
 type Query {
   artists: [Artist]
   artist(id: ID!): Artist
 }
+
+type Mutation {
+  createArtist(createArtistData: CreateArtistData): Artist
+}
+
+type Mutation {
+  deleteArtist(id: ID!): Artist
+}
+
+type Mutation {
+  updateArtist(updateArtistData: UpdateArtistData): Artist
+}
+
+
+input CreateArtistData {
+  firstName: String
+  secondName: String
+  middleName: String
+  birthDate: String
+  birthPlace: String
+  country: String
+  instruments: [String]
+}
+
+input UpdateArtistData {
+  id: String
+  firstName: String
+  secondName: String
+  middleName: String
+  birthDate: String
+  birthPlace: String
+  country: String
+  instruments: [String]
+}
+

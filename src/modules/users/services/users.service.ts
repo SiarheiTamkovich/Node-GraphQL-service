@@ -21,7 +21,7 @@ export class UsersService {
   }
 
   async getJWT(email: string, password: string) {
-    console.log('Run request to Api ...');
+    //console.log('Run request to Api ...');
     const config: AxiosRequestConfig = {
       method: 'POST',
       data: {

@@ -38,8 +38,8 @@ export class TrackResolver {
   async artists(@Parent() track) {
     const { artistsIds } = track;
     return await Promise.all(
-      artistsIds.map((id) => {
-        return this.artistsService.findById(id);
+      artistsIds.map((id: string) => {
+        return this.artistsService.findOneById(id);
       }),
     );
   }

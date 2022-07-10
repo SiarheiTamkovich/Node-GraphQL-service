@@ -1,3 +1,4 @@
+
 /*
  * -------------------------------------------------------
  * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
@@ -9,6 +10,27 @@
 export class CreateCatInput {
     name?: Nullable<string>;
     age?: Nullable<number>;
+}
+
+export class CreateArtistData {
+    firstName?: Nullable<string>;
+    secondName?: Nullable<string>;
+    middleName?: Nullable<string>;
+    birthDate?: Nullable<string>;
+    birthPlace?: Nullable<string>;
+    country?: Nullable<string>;
+    instruments?: Nullable<Nullable<string>[]>;
+}
+
+export class UpdateArtistData {
+    id?: Nullable<string>;
+    firstName?: Nullable<string>;
+    secondName?: Nullable<string>;
+    middleName?: Nullable<string>;
+    birthDate?: Nullable<string>;
+    birthPlace?: Nullable<string>;
+    country?: Nullable<string>;
+    instruments?: Nullable<Nullable<string>[]>;
 }
 
 export class CreateUserData {
@@ -35,11 +57,17 @@ export abstract class IQuery {
 
     abstract track(id: string): Nullable<Track> | Promise<Nullable<Track>>;
 
-    abstract jwt(email: string, password: string): Nullable<User> | Promise<Nullable<User>>;
+    abstract jwt(email: string, password?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
 }
 
 export abstract class IMutation {
     abstract createCat(createCatInput?: Nullable<CreateCatInput>): Nullable<Cat> | Promise<Nullable<Cat>>;
+
+    abstract createArtist(createArtistData?: Nullable<CreateArtistData>): Nullable<Artist> | Promise<Nullable<Artist>>;
+
+    abstract deleteArtist(id: string): Nullable<Artist> | Promise<Nullable<Artist>>;
+
+    abstract updateArtist(updateArtistData?: Nullable<UpdateArtistData>): Nullable<Artist> | Promise<Nullable<Artist>>;
 
     abstract createGenre(name?: Nullable<string>, description?: Nullable<string>, country?: Nullable<string>, year?: Nullable<number>): Nullable<Genre> | Promise<Nullable<Genre>>;
 
@@ -71,13 +99,9 @@ export class Artist {
     middleName?: Nullable<string>;
     birthDate?: Nullable<string>;
     birthPlace?: Nullable<string>;
-    deathDate?: Nullable<string>;
-    deathPlace?: Nullable<string>;
     country?: Nullable<string>;
-    bands?: Nullable<string>;
-    instruments?: Nullable<string>;
-    pseudonims?: Nullable<string>;
-    labels?: Nullable<string>;
+    bands?: Nullable<Nullable<Band>[]>;
+    instruments?: Nullable<Nullable<string>[]>;
 }
 
 export class Band {
@@ -114,7 +138,7 @@ export class User {
     lastName?: Nullable<string>;
     password?: Nullable<string>;
     email: string;
-    jwt?: string;
+    jwt?: Nullable<string>;
 }
 
 type Nullable<T> = T | null;
