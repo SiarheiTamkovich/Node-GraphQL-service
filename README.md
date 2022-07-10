@@ -5,7 +5,7 @@
 $ npm install
 ```
 
-## Running micro-services, then
+### Running micro-services, then
 ## Running the app
 
 ```bash
@@ -54,7 +54,7 @@ query {
 }
 ```
 
-### Creating records
+### Creating record
 
 ```typescript
 mutation {
@@ -82,13 +82,13 @@ mutation {
   }
 }
 ```
-#### With headers
+#### With header
 ```typescript
 {
 "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmM3NWFmNTFjODQxNDc1ZWJmM2RiMzAiLCJmaXJzdE5hbWUiOiJGaXJzTmFtZSIsImxhc3ROYW1lIjoiTGFzdE5hbWUiLCJlbWFpbCI6Im1haWwxMjQzQG1haWwucnUiLCJpYXQiOjE2NTcyMzUyMzF9.1VW_UqnUUyLFdjtHF01pg2sRPqSMShKSaMyqR1iqTBo"
 }
 ```
-
+### Delete record
 ```typescript
 mutation {
     deleteArtist(id: "62cab81baffc051bd24f1736")
@@ -97,7 +97,7 @@ mutation {
     }
   }
 ```
-
+### Update record
 ```typescript
 mutation {
   updateArtist (
@@ -119,7 +119,7 @@ mutation {
   }
 }
 ```
-
+### Get record
 ```typescript
 query {
   artist (
@@ -137,7 +137,7 @@ query {
   }
 }
 ```
-
+### Get all records
 ```typescript
 query {
   artists {
