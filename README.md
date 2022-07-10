@@ -5,7 +5,7 @@
 $ npm install
 ```
 
-## Running micro-services then
+## Running micro-services, then
 ## Running the app
 
 ```bash
@@ -19,6 +19,8 @@ $ npm run start:dev
 ## Test graphql
 
 go to http://localhost:3000/graphql and run script:
+
+### User register
 
 ```typescript
 mutation {
@@ -38,3 +40,19 @@ mutation {
   }
 }
 ```
+
+### User login
+
+```typescript
+query {
+  jwt(
+    email: "mail1243@mail.ru"
+    password: "pass1234N*"
+  ) {
+    jwt
+  }
+}
+```
+
+```typescript
+
