@@ -1,0 +1,45 @@
+type Track {
+  id: ID!
+  title: String!
+  bands: [Band]
+  artists: [Artist]
+  duration: Int
+  released: Int
+  genres: [Genre]
+}
+
+type Query {
+  tracks(limit: Int, offset: Int): [Track]
+  track(id: ID!): Track
+}
+
+type Mutation {
+  createTrack(createTrackData: CreateTrackData): Track
+}
+
+type Mutation {
+  deleteTrack(id: ID!): Track
+}
+
+type Mutation {
+  updateTrack(updateTrackData: UpdateTrackData): Track
+}
+
+input CreateTrackData {
+  title: String!
+  bands: [String]
+  artists: [String]
+  duration: Int
+  released: Int
+  genres: [String]
+}
+
+input UpdateTrackData {
+  id: String
+  title: String!
+  bands: [String]
+  artists: [String]
+  duration: Int
+  released: Int
+  genres: [String]
+}

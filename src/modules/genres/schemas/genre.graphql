@@ -1,0 +1,40 @@
+type Genre {
+  id: ID!
+  name: String
+  description: String
+  country: String
+  year: Int
+  subGenres: [Genre]
+}
+
+type Query {
+  genre(id: ID!): Genre
+  genres(limit: Int, offset: Int): [Genre]
+}
+
+type Mutation {
+  createGenre(createGenreData: CreateGenreData): Genre
+}
+
+type Mutation {
+  deleteGenre(id: ID!): Genre
+}
+
+type Mutation {
+  updateGenre(updateGenreData: UpdateGenreData): Genre
+}
+
+input CreateGenreData {
+  name: String
+  description: String
+  country: String
+  year: Int
+}
+
+input UpdateGenreData {
+  id: String
+  name: String
+  description: String
+  country: String
+  year: Int
+}
